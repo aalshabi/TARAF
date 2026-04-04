@@ -918,6 +918,41 @@
     font-weight: 500;
   }
 
+  /* ─── SOCIAL LINKS ─── */
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+  .footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.5);
+    transition: all 0.2s;
+  }
+  .footer-social a:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+  .footer-website {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 0.8125rem;
+    color: var(--gold);
+    text-decoration: none;
+    font-family: var(--font-en);
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .footer-website:hover { color: var(--white); }
+
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1024px) {
     .container { padding: 0 32px; }
@@ -1350,6 +1385,28 @@
         <div class="footer-brand-name">الترف للاستقدام</div>
         <div class="footer-brand-en">AL TARAF RECRUITMENT</div>
         <p class="footer-brand-desc">استقدام بثقة... خدمة بتميز. نقدم حلول استقدام متكاملة تحقق رضا العميل وكرامة العامل.</p>
+        <a href="http://altaraf.com.sa/" class="footer-website" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          altaraf.com.sa
+        </a>
+        <div class="footer-social">
+          <!-- Twitter / X -->
+          <a href="https://twitter.com/AlTaraf_Sa" target="_blank" rel="noopener" aria-label="تويتر">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <!-- Instagram -->
+          <a href="https://instagram.com/Altaraf_sa" target="_blank" rel="noopener" aria-label="انستقرام">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <!-- Snapchat -->
+          <a href="https://snapchat.com/add/AlTaraf_sa" target="_blank" rel="noopener" aria-label="سناب شات">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.206 1c.666.006 3.07.088 4.665 2.34.893 1.261 1.085 3.049 1.074 3.96l-.002.107c0 .442-.048.878-.095 1.237.38.17.768.262 1.152.262.263 0 .527-.05.685-.127l.072-.036c.154-.08.35-.163.573-.163.29 0 .543.12.714.337.233.296.225.685.015.987-.424.612-1.268.898-1.78 1.063l-.106.035c-.08.027-.157.052-.218.076-.028.078-.044.2-.023.386.023.193.074.39.133.598.01.032.02.065.029.098.62 2.088-.217 4.232-2.29 5.866-1.122.883-2.478 1.528-3.926 1.87-.272.065-.462.163-.564.292-.11.138-.12.283-.12.314 0 .03.01.078.039.13.073.134.22.253.42.356.24.124.52.214.806.305l.1.032c.473.15.962.306 1.38.575.557.358.89.84.935 1.356.035.395-.12.793-.437 1.12-.708.73-2.168 1.1-4.338 1.1-.36 0-.743-.017-1.14-.052-.59.88-1.502 1.3-1.61 1.348l-.048.02c-.1.04-.215.062-.333.062-.197 0-.365-.072-.365-.072l-.048-.023c-.107-.048-1.02-.467-1.61-1.348-.396.035-.78.052-1.14.052-2.17 0-3.63-.37-4.337-1.1-.318-.327-.473-.725-.438-1.12.046-.517.378-.998.935-1.356.418-.27.907-.425 1.38-.575l.1-.032c.287-.091.567-.18.807-.305.2-.103.346-.222.42-.356.028-.052.038-.1.038-.13 0-.031-.01-.176-.12-.314-.101-.13-.291-.227-.563-.291-1.448-.343-2.804-.988-3.926-1.871-2.074-1.634-2.91-3.778-2.29-5.866.01-.033.02-.066.029-.098.059-.209.11-.405.133-.598.021-.186.005-.308-.023-.386-.061-.024-.139-.05-.218-.076l-.107-.035c-.511-.165-1.355-.451-1.78-1.063-.209-.302-.217-.691.016-.987.17-.218.424-.337.714-.337.222 0 .419.082.572.163l.073.036c.158.078.422.127.685.127.384 0 .771-.091 1.152-.262-.047-.36-.095-.795-.095-1.237l-.003-.107c-.01-.911.182-2.699 1.075-3.96C7.73 1.088 10.133 1.006 10.8 1h1.406z"/></svg>
+          </a>
+          <!-- YouTube -->
+          <a href="https://youtube.com/@AlTaraf_sa" target="_blank" rel="noopener" aria-label="يوتيوب">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+        </div>
       </div>
       <div>
         <div class="footer-heading">روابط سريعة</div>
