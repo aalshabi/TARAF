@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الترف للاستقدام | Al Taraf Recruitment</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --blue: #0066CC;
+    --navy: #0A1F3F;
+    --gold: #C8A864;
+    --charcoal: #111827;
+    --gray: #6B7280;
+    --light-gray: #F3F4F6;
+    --white: #FFFFFF;
+    --green: #16A34A;
+    --font-ar: 'IBM Plex Sans Arabic', sans-serif;
+    --font-en: 'IBM Plex Sans', sans-serif;
+    --unit: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-ar);
+    background: var(--white);
+    color: var(--charcoal);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── GRID SYSTEM ─── */
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideRight {
+    from { opacity: 0; transform: translateX(-40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideLeft {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes lineGrow {
+    from { width: 0; }
+    to { width: 64px; }
+  }
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+  @keyframes countUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .anim-up { animation: fadeUp 0.7s ease-out both; }
+  .anim-up-d1 { animation: fadeUp 0.7s ease-out 0.1s both; }
+  .anim-up-d2 { animation: fadeUp 0.7s ease-out 0.2s both; }
+  .anim-up-d3 { animation: fadeUp 0.7s ease-out 0.3s both; }
+  .anim-up-d4 { animation: fadeUp 0.7s ease-out 0.4s both; }
+  .anim-fade { animation: fadeIn 0.8s ease-out both; }
+  .anim-right { animation: slideRight 0.7s ease-out 0.2s both; }
+  .anim-left { animation: slideLeft 0.7s ease-out 0.2s both; }
+
+  /* ─── NAVIGATION ─── */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(10,31,63,0.06);
+    transition: box-shadow 0.3s;
+  }
+  .nav.scrolled { box-shadow: 0 2px 24px rgba(10,31,63,0.08); }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .nav-logo-text {
+    font-family: var(--font-ar);
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  .nav-logo-sub {
+    font-family: var(--font-en);
+    font-weight: 500;
+    font-size: 0.6875rem;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    display: block;
+    margin-top: -2px;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--font-ar);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--charcoal);
+    text-decoration: none;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background: var(--blue);
+    transition: width 0.25s ease;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 28px;
+    background: var(--blue);
+    color: var(--white) !important;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-ar);
+  }
+  .nav-cta:hover { background: #0055AA; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+
+  .nav-mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+  }
+  .nav-mobile-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    margin: 6px 0;
+    transition: 0.3s;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    padding-top: 72px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--white) 0%, #F8FAFD 50%, #EDF2F9 100%);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,102,204,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,168,100,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 64px;
+    align-items: center;
+    padding: 80px 0;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-content { max-width: 640px; }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(0,102,204,0.08);
+    border-radius: 100px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin-bottom: 24px;
+  }
+  .hero-badge-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  .hero h1 {
+    font-family: var(--font-ar);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .hero h1 span { color: var(--blue); }
+  .hero-sub {
+    font-family: var(--font-en);
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: var(--gray);
+    letter-spacing: 0.02em;
+    margin-bottom: 24px;
+  }
+  .hero-desc {
+    font-size: 1.125rem;
+    color: var(--gray);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 520px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-bottom: 48px;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    background: var(--blue);
+    color: var(--white);
+    border-radius: 10px;
+    font-family: var(--font-ar);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,102,204,0.2);
+  }
+  .btn-primary:hover {
+    background: #0055AA;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,102,204,0.3);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--navy);
+    border: 1.5px solid rgba(10,31,63,0.15);
+    border-radius: 10px;
+    font-family: var(--font-ar);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-secondary:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: rgba(0,102,204,0.04);
+  }
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  .hero-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    color: var(--gray);
+    font-weight: 500;
+  }
+  .hero-trust-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--green);
+  }
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .hero-card {
+    background: var(--white);
+    border-radius: 20px;
+    box-shadow: 0 24px 80px rgba(10,31,63,0.08), 0 2px 8px rgba(10,31,63,0.04);
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    right: 40px;
+    left: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--gold));
+    border-radius: 0 0 4px 4px;
+  }
+  .hero-card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .hero-card-field {
+    margin-bottom: 16px;
+  }
+  .hero-card-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+  .hero-card-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: var(--font-ar);
+    font-size: 0.9375rem;
+    color: var(--charcoal);
+    background: var(--light-gray);
+    transition: border-color 0.2s;
+    outline: none;
+    direction: rtl;
+  }
+  .hero-card-input:focus { border-color: var(--blue); background: var(--white); }
+  .hero-card-input::placeholder { color: #9CA3AF; }
+  .hero-card-select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #E5E7EB;
+    border-radius: 8px;
+    font-family: var(--font-ar);
+    font-size: 0.9375rem;
+    color: var(--charcoal);
+    background: var(--light-gray);
+    appearance: none;
+    direction: rtl;
+    outline: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236B7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 16px center;
+  }
+  .hero-card-select:focus { border-color: var(--blue); background-color: var(--white); }
+  .hero-card-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--blue);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-ar);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 8px;
+  }
+  .hero-card-btn:hover { background: #0055AA; }
+  .hero-card-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--gray);
+    margin-top: 12px;
+  }
+
+  /* ─── STATS BAR ─── */
+  .stats {
+    background: var(--navy);
+    padding: 48px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .stat-item { text-align: center; }
+  .stat-number {
+    font-family: var(--font-en);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.1;
+  }
+  .stat-number span { color: var(--gold); }
+  .stat-label {
+    font-size: 0.9375rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 4px;
+    font-weight: 500;
+  }
+
+  /* ─── SECTION SHARED ─── */
+  .section { padding: 96px 0; }
+  .section-header {
+    margin-bottom: 64px;
+  }
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    font-family: var(--font-en);
+  }
+  .section-tag::before {
+    content: '';
+    width: 24px;
+    height: 2px;
+    background: var(--gold);
+    display: block;
+  }
+  .section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    font-size: 1.0625rem;
+    color: var(--gray);
+    line-height: 1.7;
+    max-width: 560px;
+  }
+
+  /* ─── SERVICES ─── */
+  .services { background: var(--light-gray); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 36px 28px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 0;
+    background: var(--blue);
+    transition: height 0.3s ease;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(10,31,63,0.08);
+    border-color: rgba(0,102,204,0.1);
+  }
+  .service-card:hover::before { height: 100%; }
+  .service-icon {
+    width: 48px;
+    height: 48px;
+    background: rgba(0,102,204,0.08);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    color: var(--blue);
+    transition: all 0.3s;
+  }
+  .service-card:hover .service-icon {
+    background: var(--blue);
+    color: var(--white);
+  }
+  .service-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .service-desc {
+    font-size: 0.9375rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ─── PROCESS ─── */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    counter-reset: step;
+  }
+  .process-step {
+    position: relative;
+    text-align: center;
+    padding-top: 24px;
+  }
+  .process-num {
+    font-family: var(--font-en);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: rgba(0,102,204,0.08);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+  .process-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+  .process-desc {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  .process-connector {
+    position: absolute;
+    top: 56px;
+    left: -32px;
+    width: 32px;
+    height: 2px;
+    background: linear-gradient(to left, var(--blue), transparent);
+  }
+
+  /* ─── WHY US ─── */
+  .why { background: var(--white); }
+  .why-grid {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .why-visual {
+    background: linear-gradient(135deg, var(--navy) 0%, #122B52 100%);
+    border-radius: 24px;
+    padding: 56px 40px;
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+  }
+  .why-visual::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid rgba(200,168,100,0.15);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .why-visual-quote {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+  }
+  .why-visual-attr {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
+  }
+  .why-visual-gold {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .why-list { list-style: none; }
+  .why-item {
+    display: flex;
+    gap: 16px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(10,31,63,0.06);
+  }
+  .why-item:last-child { border-bottom: none; }
+  .why-item-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: rgba(0,102,204,0.08);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    margin-top: 2px;
+  }
+  .why-item-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .why-item-desc {
+    font-size: 0.875rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials { background: var(--light-gray); }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 32px 28px;
+    position: relative;
+  }
+  .testimonial-stars {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 16px;
+    color: var(--gold);
+  }
+  .testimonial-text {
+    font-size: 0.9375rem;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--navy));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.875rem;
+  }
+  .testimonial-name {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .testimonial-loc {
+    font-size: 0.75rem;
+    color: var(--gray);
+  }
+
+  /* ─── CTA SECTION ─── */
+  .cta-section {
+    background: linear-gradient(135deg, var(--navy) 0%, #0D2847 100%);
+    padding: 96px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0,102,204,0.12) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .cta-content { position: relative; z-index: 1; }
+  .cta-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+  .cta-desc {
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 40px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+  }
+  .btn-white {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 36px;
+    background: var(--white);
+    color: var(--navy);
+    border-radius: 10px;
+    font-family: var(--font-ar);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: transparent;
+    color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.25);
+    border-radius: 10px;
+    font-family: var(--font-ar);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy);
+    padding: 64px 0 32px;
+    border-top: 3px solid var(--gold);
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr 2fr 3fr;
+    gap: 48px;
+    margin-bottom: 48px;
+  }
+  .footer-brand-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+  .footer-brand-en {
+    font-family: var(--font-en);
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .footer-brand-desc {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.7;
+    max-width: 280px;
+  }
+  .footer-heading {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 20px;
+  }
+  .footer-links {
+    list-style: none;
+  }
+  .footer-links li { margin-bottom: 12px; }
+  .footer-links a {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+  }
+  .footer-contact-icon {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--gold);
+    margin-top: 2px;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-copy {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.3);
+  }
+  .footer-badges {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+  .footer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    font-size: 0.6875rem;
+    color: rgba(255,255,255,0.4);
+    font-family: var(--font-en);
+    font-weight: 500;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .container { padding: 0 32px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-content { max-width: 100%; }
+    .hero-visual { justify-content: flex-start; }
+    .hero-card { max-width: 480px; }
+    .hero h1 { font-size: 2.5rem; }
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-grid { grid-template-columns: repeat(2, 1fr); gap: 40px; }
+    .process-connector { display: none; }
+    .why-grid { grid-template-columns: 1fr; gap: 40px; }
+    .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  }
+
+  @media (max-width: 768px) {
+    .container { padding: 0 16px; }
+    .nav-links { display: none; }
+    .nav-mobile-toggle { display: block; }
+    .hero { min-height: auto; }
+    .hero-grid { padding: 48px 0; }
+    .hero h1 { font-size: 2rem; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-trust { flex-wrap: wrap; gap: 16px; }
+    .hero-card { max-width: 100%; }
+    .services-grid { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; gap: 32px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .section { padding: 64px 0; }
+    .section-title { font-size: 1.75rem; }
+    .cta-title { font-size: 1.75rem; }
+    .cta-actions { flex-direction: column; align-items: center; }
+    .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .stat-number { font-size: 2rem; }
+  }
+
+  /* ─── ACCESSIBILITY ─── */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  :focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── NAVIGATION ─── -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-logo" aria-label="الترف للاستقدام - الرئيسية">
+      <svg class="nav-logo-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="8" fill="#0A1F3F"/>
+        <path d="M10 28V14h4v14h-4zm8-14h8c2.2 0 4 1.8 4 4v2c0 2.2-1.8 4-4 4h-4v4h-4V14z" fill="#C8A864"/>
+        <rect x="22" y="18" width="4" height="4" rx="1" fill="#0A1F3F"/>
+      </svg>
+      <div>
+        <span class="nav-logo-text">الترف للاستقدام</span>
+        <span class="nav-logo-sub">AL TARAF RECRUITMENT</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home">الرئيسية</a></li>
+      <li><a href="#services">خدماتنا</a></li>
+      <li><a href="#process">آلية العمل</a></li>
+      <li><a href="#why">لماذا الترف</a></li>
+      <li><a href="#testimonials">آراء العملاء</a></li>
+      <li><a href="#contact" class="nav-cta">تواصل معنا</a></li>
+    </ul>
+    <button class="nav-mobile-toggle" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="hero-content">
+      <div class="hero-badge anim-up">
+        <span class="hero-badge-dot"></span>
+        مرخّص من وزارة الموارد البشرية
+      </div>
+      <h1 class="anim-up-d1">استقدام بثقة.<br/><span>خدمة بتميز.</span></h1>
+      <p class="hero-sub anim-up-d2">Trusted Recruitment. Distinguished Service.</p>
+      <p class="hero-desc anim-up-d2">
+        نوفّر لك حلول استقدام متكاملة تجمع بين الالتزام الكامل بالأنظمة وراحة البال. من الاختيار إلى الوصول — نتولى كل شيء.
+      </p>
+      <div class="hero-actions anim-up-d3">
+        <a href="#contact" class="btn-primary">
+          ابدأ طلبك الآن
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </a>
+        <a href="tel:+966500000000" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          اتصل بنا
+        </a>
+      </div>
+      <div class="hero-trust anim-up-d4">
+        <div class="hero-trust-item">
+          <svg class="hero-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          مسجّل في مساند
+        </div>
+        <div class="hero-trust-item">
+          <svg class="hero-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          ضمان استبدال
+        </div>
+        <div class="hero-trust-item">
+          <svg class="hero-trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          متابعة ما بعد الوصول
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual anim-left">
+      <div class="hero-card">
+        <div class="hero-card-title">طلب استقدام سريع</div>
+        <div class="hero-card-field">
+          <label class="hero-card-label">الاسم الكامل</label>
+          <input type="text" class="hero-card-input" placeholder="أدخل اسمك الكامل">
+        </div>
+        <div class="hero-card-field">
+          <label class="hero-card-label">رقم الجوال</label>
+          <input type="tel" class="hero-card-input" placeholder="05X XXX XXXX" dir="ltr" style="text-align: right;">
+        </div>
+        <div class="hero-card-field">
+          <label class="hero-card-label">نوع الخدمة</label>
+          <select class="hero-card-select">
+            <option value="">اختر نوع الخدمة</option>
+            <option>عاملة منزلية</option>
+            <option>سائق خاص</option>
+            <option>طباخ / طباخة</option>
+            <option>ممرض / ممرضة</option>
+            <option>حارس أمن</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <div class="hero-card-field">
+          <label class="hero-card-label">الجنسية المفضلة</label>
+          <select class="hero-card-select">
+            <option value="">اختر الجنسية</option>
+            <option>فلبينية</option>
+            <option>إندونيسية</option>
+            <option>بنغلاديشية</option>
+            <option>كينية</option>
+            <option>أوغندية</option>
+            <option>إثيوبية</option>
+            <option>أخرى</option>
+          </select>
+        </div>
+        <button class="hero-card-btn">أرسل الطلب</button>
+        <p class="hero-card-note">سنتواصل معك خلال ٢٤ ساعة</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STATS ─── -->
+<section class="stats">
+  <div class="container stats-grid">
+    <div class="stat-item">
+      <div class="stat-number"><span>+</span>5,000</div>
+      <div class="stat-label">عميل مستفيد</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span>+</span>15</div>
+      <div class="stat-label">جنسية متاحة</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">98<span>%</span></div>
+      <div class="stat-label">نسبة رضا العملاء</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number"><span>+</span>10</div>
+      <div class="stat-label">سنوات خبرة</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── SERVICES ─── -->
+<section class="section services" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">SERVICES</div>
+      <h2 class="section-title">خدمات تغطي كل احتياجاتك</h2>
+      <p class="section-desc">حلول استقدام شاملة مصممة لتلبية متطلبات الأسر والمنشآت السعودية بأعلى معايير الجودة والامتثال.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <h3 class="service-title">العمالة المنزلية</h3>
+        <p class="service-desc">استقدام عاملات منزليات من جنسيات متعددة مع ضمان الكفاءة والتأهيل المسبق والفحص الطبي.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <h3 class="service-title">السائقون الخاصون</h3>
+        <p class="service-desc">سائقون محترفون بخبرة مؤهلة ورخص قيادة سعودية معتمدة وسجل نظيف.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+        </div>
+        <h3 class="service-title">التمريض المنزلي</h3>
+        <p class="service-desc">ممرضون وممرضات مؤهلون لرعاية كبار السن والحالات الخاصة بمتابعة مستمرة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3 class="service-title">الطهاة المحترفون</h3>
+        <p class="service-desc">طباخون بخبرة في المطبخ العربي والعالمي مع مراعاة المتطلبات الغذائية الخاصة.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h3 class="service-title">حراسة أمنية</h3>
+        <p class="service-desc">حراس أمن مدربون للمنشآت والمجمعات السكنية والتجارية بمعايير احترافية.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <h3 class="service-title">استقدام المنشآت</h3>
+        <p class="service-desc">حلول استقدام مخصصة للشركات والمؤسسات بكميات كبيرة وعقود مرنة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESS ─── -->
+<section class="section" id="process">
+  <div class="container">
+    <div class="section-header" style="text-align: center; margin-bottom: 56px;">
+      <div class="section-tag" style="justify-content: center;">PROCESS</div>
+      <h2 class="section-title">آلية العمل</h2>
+      <p class="section-desc" style="margin: 0 auto;">أربع خطوات واضحة من الطلب إلى الاستلام. بدون تعقيد.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3 class="process-title">تقديم الطلب</h3>
+        <p class="process-desc">أرسل طلبك عبر الموقع أو اتصل بنا. نحدد احتياجاتك بدقة ونقدم لك الخيارات المناسبة.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-num">02</div>
+        <h3 class="process-title">الاختيار والتوثيق</h3>
+        <p class="process-desc">نعرض عليك سير ذاتية مؤهلة. تختار المناسب، ونتولى جميع إجراءات التوثيق والتأشيرة.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-num">03</div>
+        <h3 class="process-title">الوصول والاستلام</h3>
+        <p class="process-desc">نتابع السفر والوصول ونسلّمك العامل/العاملة بعد الفحص الطبي النهائي.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-connector"></div>
+        <div class="process-num">04</div>
+        <h3 class="process-title">متابعة وضمان</h3>
+        <p class="process-desc">متابعة دورية بعد الوصول وضمان استبدال وفق الشروط المتفق عليها.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── WHY US ─── -->
+<section class="section why" id="why">
+  <div class="container why-grid">
+    <div class="why-visual">
+      <div class="why-visual-quote">
+        «الترف ليس مجرد مكتب استقدام. إنه التزام بأن تكون تجربتك مختلفة — من أول اتصال إلى آخر متابعة.»
+      </div>
+      <div class="why-visual-attr">— فلسفة الترف للاستقدام</div>
+      <div class="why-visual-gold"></div>
+    </div>
+    <div>
+      <div class="section-tag">WHY AL TARAF</div>
+      <h2 class="section-title" style="margin-bottom: 32px;">لماذا يختارنا العملاء؟</h2>
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-item-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">ترخيص ومطابقة كاملة</div>
+            <div class="why-item-desc">مسجلون رسمياً لدى وزارة الموارد البشرية ومنصة مساند. كل إجراء موثق ومتوافق مع الأنظمة.</div>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">سرعة في الإنجاز</div>
+            <div class="why-item-desc">إجراءات مُبسّطة وفريق متخصص يضمن أقصر مدة ممكنة من الطلب حتى الوصول.</div>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">ضمان فترة التجربة</div>
+            <div class="why-item-desc">نوفر ضمان استبدال خلال الفترة النظامية لضمان رضاك التام عن العمالة المستقدمة.</div>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">متابعة مستمرة</div>
+            <div class="why-item-desc">لا تنتهي علاقتنا بالتسليم. نتابع معك أداء العمالة ونقدم الدعم عند الحاجة.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-header" style="text-align: center;">
+      <div class="section-tag" style="justify-content: center;">TESTIMONIALS</div>
+      <h2 class="section-title">ماذا يقول عملاؤنا</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">«تجربة ممتازة من البداية للنهاية. التواصل كان واضح والعاملة وصلت بالوقت المحدد وبمواصفات ممتازة.»</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">أم</div>
+          <div>
+            <div class="testimonial-name">أم محمد</div>
+            <div class="testimonial-loc">الرياض</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">«أفضل مكتب استقدام تعاملت معه. الأسعار معقولة والمتابعة بعد الوصول فعلاً تفرق عن غيرهم.»</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ع</div>
+          <div>
+            <div class="testimonial-name">عبدالعزيز الحربي</div>
+            <div class="testimonial-loc">جدة</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="testimonial-text">«استقدمنا سائق من خلالهم وكانت العملية سلسة جداً. فريق محترف وتعامل راقي.»</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">ن</div>
+          <div>
+            <div class="testimonial-name">نورة السبيعي</div>
+            <div class="testimonial-loc">الدمام</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <div class="container cta-content">
+    <h2 class="cta-title">جاهز تبدأ رحلة الاستقدام؟</h2>
+    <p class="cta-desc">تواصل معنا اليوم واحصل على استشارة مجانية. فريقنا جاهز لمساعدتك في اختيار الحل الأنسب لاحتياجاتك.</p>
+    <div class="cta-actions">
+      <a href="https://wa.me/966500000000" class="btn-white" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        واتساب
+      </a>
+      <a href="tel:+966500000000" class="btn-ghost">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        اتصل الآن
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">الترف للاستقدام</div>
+        <div class="footer-brand-en">AL TARAF RECRUITMENT</div>
+        <p class="footer-brand-desc">استقدام بثقة... خدمة بتميز. نقدم حلول استقدام متكاملة تحقق رضا العميل وكرامة العامل.</p>
+      </div>
+      <div>
+        <div class="footer-heading">روابط سريعة</div>
+        <ul class="footer-links">
+          <li><a href="#services">خدماتنا</a></li>
+          <li><a href="#process">آلية العمل</a></li>
+          <li><a href="#why">لماذا الترف</a></li>
+          <li><a href="#testimonials">آراء العملاء</a></li>
+          <li><a href="#">الشروط والأحكام</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">خدماتنا</div>
+        <ul class="footer-links">
+          <li><a href="#">العمالة المنزلية</a></li>
+          <li><a href="#">السائقون</a></li>
+          <li><a href="#">التمريض المنزلي</a></li>
+          <li><a href="#">الطهاة</a></li>
+          <li><a href="#">استقدام المنشآت</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">تواصل معنا</div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>الرياض، المملكة العربية السعودية</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span dir="ltr">+966 50 000 0000</span>
+        </div>
+        <div class="footer-contact-item">
+          <svg class="footer-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span dir="ltr">info@altaraf.sa</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2026 الترف للاستقدام. جميع الحقوق محفوظة.</div>
+      <div class="footer-badges">
+        <span class="footer-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          MHRSD Licensed
+        </span>
+        <span class="footer-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+          MUSANED Registered
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Intersection Observer for scroll animations
+  const observerOptions = { threshold: 0.15, rootMargin: '0px 0px -40px 0px' };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.service-card, .process-step, .why-item, .testimonial-card, .stat-item').forEach((el, i) => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(24px)';
+    el.style.transition = `opacity 0.5s ease ${i * 0.08}s, transform 0.5s ease ${i * 0.08}s`;
+    observer.observe(el);
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
