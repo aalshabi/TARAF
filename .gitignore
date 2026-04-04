@@ -44,4 +44,6 @@ next-env.d.ts
 node_modules/
 .next/
 prisma/dev.db
+dev.db
+*.db
 src/generated/
