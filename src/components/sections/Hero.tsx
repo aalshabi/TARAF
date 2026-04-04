@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import LeadForm from '@/components/forms/LeadForm'
 
 export default function Hero() {
@@ -80,6 +81,43 @@ export default function Hero() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 خدمة على مدار الساعة
+              </div>
+            </div>
+
+            {/* Service Preview Images */}
+            <div className="grid grid-cols-3 gap-3 mt-8">
+              <div className="relative rounded-xl overflow-hidden aspect-[4/3] shadow-md">
+                <Image
+                  src="/images/cleaning.png"
+                  alt="عمالة منزلية"
+                  fill
+                  sizes="(max-width: 1024px) 30vw, 15vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
+                <span className="absolute bottom-2 right-2 text-white text-xs font-semibold">عمالة منزلية</span>
+              </div>
+              <div className="relative rounded-xl overflow-hidden aspect-[4/3] shadow-md">
+                <Image
+                  src="/images/elderly-care.png"
+                  alt="رعاية كبار السن"
+                  fill
+                  sizes="(max-width: 1024px) 30vw, 15vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
+                <span className="absolute bottom-2 right-2 text-white text-xs font-semibold">تمريض منزلي</span>
+              </div>
+              <div className="relative rounded-xl overflow-hidden aspect-[4/3] shadow-md">
+                <Image
+                  src="/images/childcare.jpg"
+                  alt="رعاية الأطفال"
+                  fill
+                  sizes="(max-width: 1024px) 30vw, 15vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />
+                <span className="absolute bottom-2 right-2 text-white text-xs font-semibold">رعاية الأطفال</span>
               </div>
             </div>
           </div>

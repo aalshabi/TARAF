@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import LeadForm from "@/components/forms/LeadForm";
 import Link from "next/link";
 
@@ -193,12 +194,27 @@ export default function PremiumServicesPage() {
             {services.map((service, idx) => {
               const colors = colorMap[service.color];
               const isReversed = idx % 2 !== 0;
+              const isNursing = service.title === "التمريض المنزلي";
 
               return (
                 <div
                   key={idx}
                   className={`rounded-2xl border ${colors.border} overflow-hidden`}
                 >
+                  {/* Nursing Service Image Banner */}
+                  {isNursing && (
+                    <div className="relative h-56 md:h-64 w-full">
+                      <Image
+                        src="/images/elderly-care.png"
+                        alt="رعاية كبار السن - التمريض المنزلي"
+                        fill
+                        sizes="100vw"
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent" />
+                    </div>
+                  )}
+
                   <div
                     className={`grid grid-cols-1 lg:grid-cols-5 gap-0 ${
                       isReversed ? "lg:flex-row-reverse" : ""

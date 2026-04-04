@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 const services = [
   {
@@ -11,6 +12,8 @@ const services = [
       </svg>
     ),
     highlight: false,
+    image: '/images/cleaning.png',
+    imageAlt: 'العمالة المنزلية',
   },
   {
     title: 'السائقون الخاصون',
@@ -22,6 +25,8 @@ const services = [
       </svg>
     ),
     highlight: false,
+    image: undefined,
+    imageAlt: undefined,
   },
   {
     title: 'التمريض المنزلي',
@@ -33,6 +38,8 @@ const services = [
       </svg>
     ),
     highlight: false,
+    image: '/images/elderly-care.png',
+    imageAlt: 'التمريض المنزلي',
   },
   {
     title: 'الطهاة المحترفون',
@@ -44,6 +51,8 @@ const services = [
       </svg>
     ),
     highlight: false,
+    image: undefined,
+    imageAlt: undefined,
   },
   {
     title: 'حراسة أمنية',
@@ -55,6 +64,8 @@ const services = [
       </svg>
     ),
     highlight: false,
+    image: undefined,
+    imageAlt: undefined,
   },
   {
     title: 'التأجير الشهري',
@@ -66,6 +77,8 @@ const services = [
       </svg>
     ),
     highlight: true,
+    image: '/images/childcare.jpg',
+    imageAlt: 'التأجير الشهري',
   },
 ]
 
@@ -92,7 +105,7 @@ export default function Services() {
             <Link
               key={i}
               href={service.href}
-              className={`group relative bg-white rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-r-4 border-r-transparent hover:border-r-blue ${
+              className={`group relative bg-white rounded-2xl ${service.image ? 'p-0 pb-6' : 'p-6 sm:p-8'} transition-all duration-300 hover:-translate-y-1 hover:shadow-lg border-r-4 border-r-transparent hover:border-r-blue overflow-hidden ${
                 service.highlight
                   ? 'ring-2 ring-gold/50 shadow-md'
                   : 'shadow-sm'
@@ -100,11 +113,26 @@ export default function Services() {
             >
               {/* Highlight Badge */}
               {service.highlight && (
-                <span className="absolute -top-3 start-6 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full">
+                <span className="absolute -top-3 start-6 bg-gold text-white text-xs font-bold px-3 py-1 rounded-full z-10">
                   الأكثر طلباً
                 </span>
               )}
 
+              {/* Service Image */}
+              {service.image && (
+                <div className="relative h-40 w-full overflow-hidden mb-4">
+                  <Image
+                    src={service.image}
+                    alt={service.imageAlt || service.title}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-white/30 to-transparent" />
+                </div>
+              )}
+
+              <div className={service.image ? 'px-6' : ''}>
               {/* Icon */}
               <div className="w-12 h-12 rounded-xl bg-blue/10 text-blue flex items-center justify-center mb-5 group-hover:bg-blue group-hover:text-white transition-colors">
                 {service.icon}
@@ -125,6 +153,7 @@ export default function Services() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </span>
+              </div>
             </Link>
           ))}
         </div>

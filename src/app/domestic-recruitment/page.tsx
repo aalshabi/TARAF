@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import LeadForm from "@/components/forms/LeadForm";
 import Link from "next/link";
 
@@ -156,43 +157,61 @@ export default function DomesticRecruitmentPage() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 lg:py-32">
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
-              <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
-              <span className="text-green text-sm font-medium">
-                جنسيات متعددة متوفرة
-              </span>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="text-center lg:text-start">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                <span className="w-2 h-2 bg-green rounded-full animate-pulse" />
+                <span className="text-green text-sm font-medium">
+                  جنسيات متعددة متوفرة
+                </span>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                الاستقدام المنزلي
+              </h1>
+              <p className="text-xl md:text-2xl text-blue-200 mb-3 font-medium">
+                عمالة مؤهلة من أفضل الجنسيات بإجراءات سريعة وموثوقة
+              </p>
+              <p
+                className="text-base text-white/50 tracking-wide mb-10"
+                style={{ fontFamily: "var(--font-en)" }}
+              >
+                Domestic Recruitment Services
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a
+                  href="#lead-form"
+                  className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-bold text-lg px-8 py-4 rounded-xl hover:bg-gold/90 transition-colors"
+                >
+                  قدّم طلب استقدام
+                  <svg className="w-5 h-5 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+                <a
+                  href="#nationalities"
+                  className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg px-8 py-4 rounded-xl border border-white/20 hover:bg-white/20 transition-colors"
+                >
+                  استعرض الجنسيات
+                </a>
+              </div>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              الاستقدام المنزلي
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-200 mb-3 font-medium">
-              عمالة مؤهلة من أفضل الجنسيات بإجراءات سريعة وموثوقة
-            </p>
-            <p
-              className="text-base text-white/50 tracking-wide mb-10"
-              style={{ fontFamily: "var(--font-en)" }}
-            >
-              Domestic Recruitment Services
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="#lead-form"
-                className="inline-flex items-center justify-center gap-2 bg-gold text-navy font-bold text-lg px-8 py-4 rounded-xl hover:bg-gold/90 transition-colors"
-              >
-                قدّم طلب استقدام
-                <svg className="w-5 h-5 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
-              <a
-                href="#nationalities"
-                className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold text-lg px-8 py-4 rounded-xl border border-white/20 hover:bg-white/20 transition-colors"
-              >
-                استعرض الجنسيات
-              </a>
+            {/* Hero Image */}
+            <div className="hidden lg:block">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/cleaning.png"
+                  alt="عمالة منزلية مؤهلة"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent" />
+              </div>
             </div>
           </div>
         </div>
