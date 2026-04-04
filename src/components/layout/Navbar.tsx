@@ -58,14 +58,14 @@ export default function Navbar() {
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <Image
             src="/logo.png"
-            alt="شركة ترف"
+            alt="شركة ترف للاستقدام"
             width={40}
             height={40}
             className="rounded-md"
           />
           <div className="leading-tight">
             <span className="block text-navy font-bold text-base">
-              شركة ترف
+              شركة ترف للاستقدام
             </span>
             <span
               className="block text-gray text-[10px] tracking-wider font-medium"

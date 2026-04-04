@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="text-xl font-bold mb-2">شركة ترف</h3>
+            <h3 className="text-xl font-bold mb-2">شركة ترف للاستقدام</h3>
             <p
               className="text-xs text-gold/80 tracking-wider font-medium mb-4"
               style={{ fontFamily: "var(--font-en)" }}
@@ -227,7 +227,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/50">
-            &copy; 2026 شركة ترف. جميع الحقوق محفوظة.
+            &copy; 2026 شركة ترف للاستقدام. جميع الحقوق محفوظة.
           </p>
           <div className="flex items-center gap-4">
             <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-full">

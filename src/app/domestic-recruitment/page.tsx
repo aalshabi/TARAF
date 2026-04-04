@@ -4,9 +4,9 @@ import LeadForm from "@/components/forms/LeadForm";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "الاستقدام المنزلي | شركة ترف",
+  title: "الاستقدام المنزلي | شركة ترف للاستقدام",
   description:
-    "استقدام عمالة منزلية من الفلبين، إندونيسيا، بنغلاديش، كينيا، أوغندا وإثيوبيا. إجراءات سريعة وضمانات شاملة مع شركة ترف.",
+    "استقدام عمالة منزلية من الفلبين، إندونيسيا، بنغلاديش، كينيا، أوغندا وإثيوبيا. إجراءات سريعة وضمانات شاملة مع شركة ترف للاستقدام.",
   keywords: [
     "استقدام عاملة منزلية",
     "استقدام فلبينية",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "استقدام بنغلاديشية",
   ],
   openGraph: {
-    title: "الاستقدام المنزلي | شركة ترف",
+    title: "الاستقدام المنزلي | شركة ترف للاستقدام",
     description:
       "عمالة منزلية مؤهلة من جنسيات متعددة مع إجراءات سريعة وضمانات شاملة",
   },
@@ -408,7 +408,7 @@ export default function DomesticRecruitmentPage() {
             ابدأ رحلة الاستقدام اليوم
           </h2>
           <p className="text-blue-200 text-lg md:text-xl mb-8 max-w-2xl mx-auto">
-            آلاف الأسر السعودية تثق بشركة ترف. انضم إليهم واستمتع بخدمة
+            آلاف الأسر السعودية تثق بشركة ترف للاستقدام. انضم إليهم واستمتع بخدمة
             موثوقة.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
