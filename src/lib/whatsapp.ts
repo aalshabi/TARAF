@@ -1,4 +1,4 @@
-const WHATSAPP_NUMBER = '966500000000'
+const WHATSAPP_NUMBER = '966543222787'
 
 // Smart routing based on service type
 export function getWhatsAppTeam(service: string): string {

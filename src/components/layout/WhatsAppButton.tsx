@@ -1,7 +1,7 @@
 "use client";
 
 export default function WhatsAppButton() {
-  const phoneNumber = "966500000000";
+  const phoneNumber = "966543222787";
   const message = encodeURIComponent(
     "السلام عليكم، أرغب في الاستفسار عن خدمات الاستقدام"
   );
