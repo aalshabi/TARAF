@@ -192,7 +192,7 @@ export default function LeadDetailPage() {
   const openWhatsAppWithMessage = useCallback((phone: string, name: string) => {
     const cleaned = phone.replace(/\D/g, '')
     const intl = cleaned.startsWith('0') ? `966${cleaned.slice(1)}` : cleaned.startsWith('966') ? cleaned : `966${cleaned}`
-    const message = encodeURIComponent(`مرحبا ${name}، نتواصل معك من شركة ترف للاستقدام بخصوص طلبك. كيف يمكننا مساعدتك؟`)
+    const message = encodeURIComponent(`مرحبا ${name}، نتواصل معك من شركة الترف للاستقدام بخصوص طلبك. كيف يمكننا مساعدتك؟`)
     window.open(`https://wa.me/${intl}?text=${message}`, '_blank')
   }, [])
 

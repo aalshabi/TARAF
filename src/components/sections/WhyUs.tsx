@@ -65,7 +65,7 @@ export default function WhyUs() {
                   ت
                 </div>
                 <div>
-                  <div className="text-white font-semibold text-sm">إدارة شركة ترف للاستقدام</div>
+                  <div className="text-white font-semibold text-sm">إدارة شركة الترف للاستقدام</div>
                   <div className="text-white/50 text-xs">رؤيتنا وفلسفتنا</div>
                 </div>
               </div>

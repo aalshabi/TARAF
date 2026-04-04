@@ -4,7 +4,7 @@ import LeadForm from "@/components/forms/LeadForm";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "الخدمات المميزة | شركة ترف للاستقدام",
+  title: "الخدمات المميزة | شركة الترف للاستقدام",
   description:
     "خدمات استقدام مميزة تشمل التمريض المنزلي، الطهاة المحترفين، الحراسة الأمنية، وخدمات VIP. جودة استثنائية لعملائنا المميزين.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "استقدام مميز",
   ],
   openGraph: {
-    title: "الخدمات المميزة | شركة ترف للاستقدام",
+    title: "الخدمات المميزة | شركة الترف للاستقدام",
     description: "خدمات استثنائية لأسلوب حياة راقٍ",
   },
 };

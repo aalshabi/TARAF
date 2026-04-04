@@ -5,7 +5,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "شركة ترف للاستقدام | Al Taraf Recruitment",
+  title: "شركة الترف للاستقدام | Al Taraf Recruitment",
   description:
     "استقدام بثقة، خدمة بتميز. حلول استقدام متكاملة للأسر والمنشآت السعودية.",
   icons: { icon: "/logo.png" },
