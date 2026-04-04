@@ -4,7 +4,7 @@ import LeadForm from "@/components/forms/LeadForm";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "التأجير الشهري للعمالة | الترف للاستقدام",
+  title: "التأجير الشهري للعمالة | شركة ترف",
   description:
     "حلول تأجير عمالة شهرية مرنة بدون كفالة. عمالة منزلية، سائقين، وطاقم متكامل باشتراك شهري واضح. استبدال فوري خلال 48 ساعة.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "استقدام الرياض",
   ],
   openGraph: {
-    title: "التأجير الشهري للعمالة | الترف للاستقدام",
+    title: "التأجير الشهري للعمالة | شركة ترف",
     description:
       "حلول مرنة بدون التزام طويل - اشتراك شهري واضح بدون رسوم مخفية",
   },
