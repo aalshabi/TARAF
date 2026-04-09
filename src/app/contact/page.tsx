@@ -27,7 +27,7 @@ const contactInfo = [
     ),
     label: "العنوان",
     value: "الرياض - حي الحمراء - طريق الامام عبدالله بن سعود بن عبدالعزيز - رقم المبنى: 8346 - الرمز البريدي: 13217",
-    href: null,
+    href: "https://maps.app.goo.gl/MD9o6cibHTnqbPoM8?g_st=iwb",
   },
   {
     icon: (
@@ -282,7 +282,7 @@ export default function ContactPage() {
                       الرياض - حي الحمراء - طريق الامام عبدالله بن سعود بن عبدالعزيز
                     </p>
                     <a
-                      href="https://maps.google.com/?q=Riyadh+Saudi+Arabia"
+                      href="https://maps.app.goo.gl/MD9o6cibHTnqbPoM8?g_st=iwb"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-blue text-sm font-semibold mt-2 hover:underline"
