@@ -182,14 +182,14 @@ export default function Footer() {
                 </svg>
                 <div className="flex flex-col gap-1">
                   <a
-                    href={`tel:${LICENSE.unifiedNumber}`}
+                    href={`tel:${LICENSE.unifiedCallNumber}`}
                     className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-gold transition-colors"
                     dir="ltr"
                   >
                     <span className="text-[10px] text-gold/80 border border-gold/40 px-1.5 py-0.5 rounded whitespace-nowrap">
                       الرقم الموحد
                     </span>
-                    {LICENSE.unifiedNumber}
+                    {LICENSE.unifiedCallNumber}
                   </a>
                   <a
                     href="tel:+966543222787"
@@ -269,6 +269,21 @@ export default function Footer() {
               <span className="text-white/40">•</span>
               <span>صالح حتى {formatLicenseEndDate()}</span>
             </Link>
+            <span className="inline-flex items-center gap-1.5 text-xs text-white/70 bg-white/5 px-3 py-1.5 rounded-full">
+              <svg
+                className="w-3.5 h-3.5 text-green"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M16.403 12.652a3 3 0 000-5.304 3 3 0 00-3.75-3.751 3 3 0 00-5.305 0 3 3 0 00-3.751 3.75 3 3 0 000 5.305 3 3 0 003.75 3.751 3 3 0 005.305 0 3 3 0 003.751-3.75zm-2.546-4.46a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              س.ت #
+              <span style={{ fontFamily: "var(--font-en)" }}>{LICENSE.commercialRegister}</span>
+            </span>
             <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-full">
               <svg
                 className="w-3.5 h-3.5 text-green"

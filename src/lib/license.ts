@@ -3,7 +3,8 @@
 
 export const LICENSE = {
   number: "40011044",
-  unifiedNumber: "7005691352", // Unified establishment/license number (not a phone)
+  commercialRegister: "7005691352", // CR (رقم السجل التجاري)
+  unifiedCallNumber: "920018173", // Unified 920 customer service number
   establishmentKind: { ar: "شركة", en: "Company" },
   licenseClass: {
     ar: "شركة استقدام عمالة منزلية (صغيرة)",
