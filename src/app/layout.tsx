@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "شركة الترف للاستقدام | Al Taraf Recruitment",
   description:
     "استقدام بثقة، خدمة بتميز. حلول استقدام متكاملة للأسر والمنشآت السعودية.",
-  icons: { icon: "/logo.png" },
+  // Favicon is served from src/app/icon.png via Next's file-based metadata convention.
 };
 
 export default function RootLayout({
