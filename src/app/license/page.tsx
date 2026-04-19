@@ -100,6 +100,12 @@ export default async function LicensePage() {
               valueEn={endDate}
               valueAr={endDate}
             />
+            <Field
+              labelEn="Unified Number"
+              labelAr="الرقم الموحد"
+              valueEn={LICENSE.unifiedNumber}
+              valueAr={LICENSE.unifiedNumber}
+            />
           </dl>
 
           {/* QR block */}

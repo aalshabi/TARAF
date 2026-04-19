@@ -182,6 +182,16 @@ export default function Footer() {
                 </svg>
                 <div className="flex flex-col gap-1">
                   <a
+                    href={`tel:${LICENSE.unifiedNumber}`}
+                    className="inline-flex items-center gap-2 text-sm text-white/80 hover:text-gold transition-colors"
+                    dir="ltr"
+                  >
+                    <span className="text-[10px] text-gold/80 border border-gold/40 px-1.5 py-0.5 rounded">
+                      الرقم الموحد
+                    </span>
+                    {LICENSE.unifiedNumber}
+                  </a>
+                  <a
                     href="tel:+966543222787"
                     className="text-sm text-white/70 hover:text-gold transition-colors"
                     dir="ltr"

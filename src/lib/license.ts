@@ -3,6 +3,7 @@
 
 export const LICENSE = {
   number: "40011044",
+  unifiedNumber: "7005691352", // Saudi unified (700) number
   establishmentKind: { ar: "شركة", en: "Company" },
   licenseClass: {
     ar: "شركة استقدام عمالة منزلية (صغيرة)",
