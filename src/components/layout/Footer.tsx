@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LICENSE, formatLicenseEndDate } from "@/lib/license";
+import { COMPANY, LICENSE, formatLicenseEndDate } from "@/lib/license";
 
 const quickLinks = [
   { label: "الرئيسية", href: "/" },
@@ -245,7 +245,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-white/50">
-            &copy; 2026 شركة الترف للاستقدام. جميع الحقوق محفوظة.
+            جميع الحقوق محفوظة لـ{COMPANY.name.ar} {COMPANY.legalForm.ar} &copy; 2026
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <Link

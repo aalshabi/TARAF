@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import QRCode from "qrcode";
-import { LICENSE, formatLicenseEndDate } from "@/lib/license";
+import {
+  COMPANY,
+  LICENSE,
+  formatCapitalSar,
+  formatLicenseEndDate,
+} from "@/lib/license";
 
 export const metadata: Metadata = {
   title: `ترخيص شركة الترف للاستقدام | #${LICENSE.number}`,
@@ -143,6 +148,98 @@ export default async function LicensePage() {
         <p className="text-center text-xs text-gray mt-6">
           للتحقق المباشر، امسح الرمز أعلاه أو زر منصة مساند.
         </p>
+
+        {/* Company formation details — from the Articles of Association */}
+        <article className="mt-8 bg-white rounded-2xl shadow-sm border border-light overflow-hidden">
+          <header className="px-6 sm:px-8 py-5 border-b border-light">
+            <h2 className="text-lg font-bold text-navy">بيانات تأسيس الشركة</h2>
+            <p
+              className="text-xs text-gray mt-1"
+              style={{ fontFamily: "var(--font-en)" }}
+            >
+              Company Formation Details
+            </p>
+          </header>
+
+          <dl className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5 p-6 sm:p-8">
+            <Field
+              labelEn="Company Name"
+              labelAr="اسم الشركة"
+              valueEn={COMPANY.name.en}
+              valueAr={COMPANY.name.ar}
+            />
+            <Field
+              labelEn="Legal Form"
+              labelAr="الشكل القانوني"
+              valueEn={COMPANY.legalForm.en}
+              valueAr={COMPANY.legalForm.ar}
+            />
+            <Field
+              labelEn="Headquarters"
+              labelAr="المركز الرئيسي"
+              valueEn={COMPANY.headquarters.en}
+              valueAr={COMPANY.headquarters.ar}
+            />
+            <Field
+              labelEn="Company Duration"
+              labelAr="مدة الشركة"
+              valueEn="Unlimited"
+              valueAr="غير محددة"
+            />
+            <Field
+              labelEn="Issued Capital"
+              labelAr="رأس المال المصدر"
+              valueEn={`SAR ${formatCapitalSar("en")}`}
+              valueAr={`${formatCapitalSar("ar")} ريال سعودي`}
+            />
+            <Field
+              labelEn="Shares"
+              labelAr="الأسهم"
+              valueEn={`${COMPANY.capital.shareCount.toLocaleString("en-US")} shares · SAR ${COMPANY.capital.sharePriceSar}`}
+              valueAr={`${COMPANY.capital.shareCount.toLocaleString("ar-SA")} سهم • ${COMPANY.capital.sharePriceSar} ريال للسهم`}
+            />
+            <Field
+              labelEn="Fiscal Year"
+              labelAr="السنة المالية"
+              valueEn={COMPANY.fiscalYear.en}
+              valueAr={COMPANY.fiscalYear.ar}
+            />
+            <Field
+              labelEn="Commercial Register"
+              labelAr="رقم السجل التجاري"
+              valueEn={LICENSE.commercialRegister}
+              valueAr={LICENSE.commercialRegister}
+            />
+          </dl>
+
+          {/* Board of Directors */}
+          <div className="border-t border-light p-6 sm:p-8">
+            <h3 className="text-sm font-bold text-navy mb-4">مجلس الإدارة</h3>
+            <ul className="space-y-3">
+              {COMPANY.board.map((m) => (
+                <li
+                  key={m.nameAr}
+                  className="flex items-center justify-between gap-3 p-4 rounded-xl border border-light bg-light/40"
+                >
+                  <div className="min-w-0">
+                    <p className="text-sm font-semibold text-navy truncate">
+                      {m.nameAr}
+                    </p>
+                    <p
+                      className="text-[11px] text-gray mt-0.5 truncate"
+                      style={{ fontFamily: "var(--font-en)" }}
+                    >
+                      {m.nameEn}
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-xs font-medium text-blue bg-blue/10 px-2.5 py-1 rounded-full">
+                    {m.roleAr}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
       </div>
     </div>
   );
