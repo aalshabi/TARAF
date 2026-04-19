@@ -101,8 +101,8 @@ export default async function LicensePage() {
               valueAr={endDate}
             />
             <Field
-              labelEn="Unified Number"
-              labelAr="الرقم الموحد"
+              labelEn="Unified License Number"
+              labelAr="الرقم الموحد للترخيص"
               valueEn={LICENSE.unifiedNumber}
               valueAr={LICENSE.unifiedNumber}
             />
