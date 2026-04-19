@@ -1,10 +1,12 @@
 import Link from "next/link";
+import { LICENSE, formatLicenseEndDate } from "@/lib/license";
 
 const quickLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "آلية العمل", href: "#how-it-works" },
   { label: "لماذا الترف", href: "#why-us" },
   { label: "متابعة الطلب", href: "/track-order" },
+  { label: "شهادة الترخيص", href: "/license" },
   { label: "تواصل معنا", href: "#contact" },
 ];
 
@@ -235,8 +237,12 @@ export default function Footer() {
           <p className="text-xs text-white/50">
             &copy; 2026 شركة الترف للاستقدام. جميع الحقوق محفوظة.
           </p>
-          <div className="flex items-center gap-4">
-            <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-full">
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href="/license"
+              className="inline-flex items-center gap-1.5 text-xs text-white/70 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full transition-colors"
+              aria-label={`عرض شهادة الترخيص رقم ${LICENSE.number}`}
+            >
               <svg
                 className="w-3.5 h-3.5 text-green"
                 fill="currentColor"
@@ -248,8 +254,11 @@ export default function Footer() {
                   clipRule="evenodd"
                 />
               </svg>
-              مرخصة من وزارة الموارد البشرية
-            </span>
+              ترخيص #
+              <span style={{ fontFamily: "var(--font-en)" }}>{LICENSE.number}</span>
+              <span className="text-white/40">•</span>
+              <span>صالح حتى {formatLicenseEndDate()}</span>
+            </Link>
             <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-full">
               <svg
                 className="w-3.5 h-3.5 text-green"
