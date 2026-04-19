@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
+import ChatWidget from "@/components/chat/ChatWidget";
 
 export const metadata: Metadata = {
   title: "شركة الترف للاستقدام | Al Taraf Recruitment",
@@ -29,6 +30,7 @@ export default function RootLayout({
         <main className="flex-1">{children}</main>
         <Footer />
         <WhatsAppButton />
+        <ChatWidget />
       </body>
     </html>
   );

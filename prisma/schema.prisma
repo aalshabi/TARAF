@@ -21,7 +21,20 @@ model Lead {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
+  // Additive fields for the "مستشار ترف" chat flow. Safe for non-chat leads
+  // because they all default to empty / null and existing code ignores them.
+  sessionId      String @default("") // chat session ID for upsert
+  classification String @default("") // hot | warm | cold (only set for chat leads)
+  city           String @default("")
+  nationality    String @default("")
+  budget         String @default("")
+  urgency        String @default("") // immediate | soon | flexible
+  transcript     String @default("") // JSON-stringified message history
+
   followUps FollowUp[]
+
+  @@index([sessionId])
+  @@index([source])
 }
 
 model FollowUp {

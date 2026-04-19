@@ -22,7 +22,19 @@ interface Lead {
   team: string
   createdAt: string
   updatedAt: string
+  // Optional chat-only fields — empty/absent for form-generated leads.
+  classification?: string
+  city?: string
+  nationality?: string
+  budget?: string
+  urgency?: string
   followUps?: FollowUp[]
+}
+
+const CLASSIFICATION_BADGE: Record<string, { label: string; bg: string; color: string }> = {
+  hot: { label: 'ساخن', bg: 'bg-red-100', color: 'text-red-700' },
+  warm: { label: 'دافئ', bg: 'bg-amber-100', color: 'text-amber-800' },
+  cold: { label: 'بارد', bg: 'bg-gray-100', color: 'text-gray-700' },
 }
 
 const STATUS_MAP: Record<string, { label: string; color: string; bg: string }> = {
@@ -363,7 +375,26 @@ export default function LeadsPage() {
                     const statusInfo = STATUS_MAP[lead.status] || { label: lead.status, color: 'text-gray-700', bg: 'bg-gray-100' }
                     return (
                       <tr key={lead.id} className="border-b border-gray/5 hover:bg-light/30 transition-colors">
-                        <td className="py-3 px-4 font-medium text-charcoal">{lead.name}</td>
+                        <td className="py-3 px-4 font-medium text-charcoal">
+                          <div className="flex items-center gap-2">
+                            <span>{lead.name}</span>
+                            {lead.source === 'chat' && (
+                              <span
+                                title="مصدر: مستشار ترف"
+                                className="inline-flex items-center gap-1 text-[10px] font-medium bg-navy/10 text-navy px-1.5 py-0.5 rounded"
+                              >
+                                💬 مستشار
+                              </span>
+                            )}
+                            {lead.classification && CLASSIFICATION_BADGE[lead.classification] && (
+                              <span
+                                className={`text-[10px] font-medium px-1.5 py-0.5 rounded ${CLASSIFICATION_BADGE[lead.classification].bg} ${CLASSIFICATION_BADGE[lead.classification].color}`}
+                              >
+                                {CLASSIFICATION_BADGE[lead.classification].label}
+                              </span>
+                            )}
+                          </div>
+                        </td>
                         <td className="py-3 px-4 text-gray" dir="ltr">{formatPhone(lead.phone)}</td>
                         <td className="py-3 px-4 text-charcoal">{lead.service}</td>
                         <td className="py-3 px-4">
