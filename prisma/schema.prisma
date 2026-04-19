@@ -31,3 +31,62 @@ model FollowUp {
   type      String
   createdAt DateTime @default(now())
 }
+
+// Recruitment order tracked by customers via /track-order
+model Order {
+  id           String   @id @default(cuid())
+  orderNumber  String   @unique
+  status       String   @default("new") // new | under_review | approved | in_progress | completed | rejected
+
+  // Customer info
+  customerName String
+  nationalId   String   // National ID or Commercial Register
+  phone        String
+  email        String   @default("")
+  city         String   @default("")
+  region       String   @default("")
+  nationalAddress String @default("")
+
+  // Recruitment request details
+  profession      String   // المهنة المطلوبة
+  nationality     String   // الجنسية المطلوبة
+  gender          String   @default("") // female | male
+  ageFrom         Int?
+  ageTo           Int?
+  expectedSalary  Int?
+  experienceYears Int?
+  language        String   @default("")
+  contractMonths  Int?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  attachments  OrderAttachment[]
+  events       OrderStatusEvent[]
+
+  @@index([nationalId])
+}
+
+model OrderAttachment {
+  id         String   @id @default(cuid())
+  orderId    String
+  order      Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  kind       String   // national_id | commercial_register | financial_proof | national_address | visa | other | contract_pdf
+  label      String
+  status     String   @default("uploaded") // uploaded | missing | rejected | approved
+  url        String   @default("")
+  createdAt  DateTime @default(now())
+
+  @@index([orderId])
+}
+
+model OrderStatusEvent {
+  id        String   @id @default(cuid())
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  status    String   // same enum as Order.status
+  note      String   @default("")
+  createdAt DateTime @default(now())
+
+  @@index([orderId])
+}

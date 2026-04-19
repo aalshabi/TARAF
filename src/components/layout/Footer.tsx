@@ -4,6 +4,7 @@ const quickLinks = [
   { label: "الرئيسية", href: "/" },
   { label: "آلية العمل", href: "#how-it-works" },
   { label: "لماذا الترف", href: "#why-us" },
+  { label: "متابعة الطلب", href: "/track-order" },
   { label: "تواصل معنا", href: "#contact" },
 ];
 

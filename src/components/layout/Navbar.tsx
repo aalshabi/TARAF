@@ -137,6 +137,12 @@ export default function Navbar() {
             لماذا الترف
           </Link>
           <Link
+            href="/track-order"
+            className="text-sm font-medium text-navy hover:text-blue transition-colors"
+          >
+            متابعة الطلب
+          </Link>
+          <Link
             href="#contact"
             className="text-sm font-semibold text-white bg-blue hover:bg-blue/90 px-5 py-2.5 rounded-lg transition-colors"
           >
@@ -226,6 +232,13 @@ export default function Navbar() {
               className="py-3 px-4 text-base font-medium text-navy hover:bg-light rounded-lg transition-colors"
             >
               لماذا الترف
+            </Link>
+            <Link
+              href="/track-order"
+              onClick={() => setMobileOpen(false)}
+              className="py-3 px-4 text-base font-medium text-navy hover:bg-light rounded-lg transition-colors"
+            >
+              متابعة الطلب
             </Link>
 
             <div className="mt-4 px-4">
