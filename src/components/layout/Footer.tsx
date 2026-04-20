@@ -6,7 +6,6 @@ const quickLinks = [
   { label: "آلية العمل", href: "#how-it-works" },
   { label: "لماذا الترف", href: "#why-us" },
   { label: "متابعة الطلب", href: "/track-order" },
-  { label: "شهادة الترخيص", href: "/license" },
   { label: "تواصل معنا", href: "#contact" },
 ];
 
@@ -248,11 +247,7 @@ export default function Footer() {
             جميع الحقوق محفوظة لـ{COMPANY.name.ar} {COMPANY.legalForm.ar} &copy; 2026
           </p>
           <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href="/license"
-              className="inline-flex items-center gap-1.5 text-xs text-white/70 bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-full transition-colors"
-              aria-label={`عرض شهادة الترخيص رقم ${LICENSE.number}`}
-            >
+            <span className="inline-flex items-center gap-1.5 text-xs text-white/70 bg-white/5 px-3 py-1.5 rounded-full">
               <svg
                 className="w-3.5 h-3.5 text-green"
                 fill="currentColor"
@@ -268,7 +263,7 @@ export default function Footer() {
               <span style={{ fontFamily: "var(--font-en)" }}>{LICENSE.number}</span>
               <span className="text-white/40">•</span>
               <span>صالح حتى {formatLicenseEndDate()}</span>
-            </Link>
+            </span>
             <span className="inline-flex items-center gap-1.5 text-xs text-white/70 bg-white/5 px-3 py-1.5 rounded-full">
               <svg
                 className="w-3.5 h-3.5 text-green"
