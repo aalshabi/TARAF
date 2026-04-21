@@ -51,7 +51,7 @@ export default function ChatWidget() {
       {/* Launcher — bottom-right to avoid overlap with WhatsApp (bottom-left) */}
       <button
         type="button"
-        aria-label={open ? "إغلاق المستشار" : "فتح مستشار ترف"}
+        aria-label={open ? "إغلاق المستشارة" : "فتح مستشارتك ترف"}
         onClick={() => setOpen((o) => !o)}
         className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-navy text-white shadow-xl border-2 border-gold/70 hover:bg-navy/90 active:scale-95 transition-all px-4 h-14 sm:h-14"
       >
@@ -70,7 +70,7 @@ export default function ChatWidget() {
             />
           )}
         </span>
-        <span className="text-sm font-semibold">مستشار ترف</span>
+        <span className="text-sm font-semibold">مستشارتك ترف</span>
       </button>
 
       {/* Panel */}
@@ -78,7 +78,7 @@ export default function ChatWidget() {
         <div
           role="dialog"
           aria-modal="false"
-          aria-label="مستشار ترف"
+          aria-label="مستشارتك ترف"
           className="fixed inset-x-0 bottom-0 sm:inset-auto sm:bottom-24 sm:right-6 sm:w-[380px] z-50 flex flex-col bg-white shadow-2xl border border-light sm:rounded-2xl overflow-hidden max-h-[85vh] sm:max-h-[620px] animate-in fade-in slide-in-from-bottom-4"
         >
           {/* Header */}
@@ -94,7 +94,7 @@ export default function ChatWidget() {
                 </svg>
               </span>
               <div className="min-w-0">
-                <p className="text-sm font-bold leading-tight">مستشار ترف</p>
+                <p className="text-sm font-bold leading-tight">مستشارتك ترف</p>
                 <p className="text-[11px] text-white/70 leading-tight">
                   متصل الآن • نرد خلال دقائق
                 </p>

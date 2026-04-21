@@ -379,7 +379,7 @@ export default function LeadsPage() {
                             <span>{lead.name}</span>
                             {lead.source === 'chat' && (
                               <span
-                                title="مصدر: مستشار ترف"
+                                title="مصدر: مستشارتك ترف"
                                 className="inline-flex items-center gap-1 text-[10px] font-medium bg-navy/10 text-navy px-1.5 py-0.5 rounded"
                               >
                                 💬 مستشار
