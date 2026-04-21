@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import ChatWidget from "@/components/chat/ChatWidget";
 import RegisterSW from "@/components/pwa/RegisterSW";
+import InstallPrompt from "@/components/pwa/InstallPrompt";
 
 export const metadata: Metadata = {
   title: "شركة الترف للاستقدام | Al Taraf Recruitment",
@@ -43,6 +44,7 @@ export default function RootLayout({
         <WhatsAppButton />
         <ChatWidget />
         <RegisterSW />
+        <InstallPrompt />
       </body>
     </html>
   );
