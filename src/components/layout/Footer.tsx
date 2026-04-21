@@ -186,7 +186,7 @@ export default function Footer() {
                     dir="ltr"
                   >
                     <span className="text-[10px] text-gold/80 border border-gold/40 px-1.5 py-0.5 rounded whitespace-nowrap">
-                      الرقم الموحد
+                      رقم الاتصال الموحد
                     </span>
                     {LICENSE.unifiedCallNumber}
                   </a>
@@ -276,7 +276,7 @@ export default function Footer() {
                   clipRule="evenodd"
                 />
               </svg>
-              س.ت #
+              الرقم الوطني الموحد
               <span style={{ fontFamily: "var(--font-en)" }}>{LICENSE.commercialRegister}</span>
             </span>
             <span className="inline-flex items-center gap-1.5 text-xs text-white/50 bg-white/5 px-3 py-1.5 rounded-full">
