@@ -1,15 +1,26 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import ChatWidget from "@/components/chat/ChatWidget";
+import RegisterSW from "@/components/pwa/RegisterSW";
 
 export const metadata: Metadata = {
   title: "شركة الترف للاستقدام | Al Taraf Recruitment",
   description:
     "استقدام بثقة، خدمة بتميز. حلول استقدام متكاملة للأسر والمنشآت السعودية.",
+  applicationName: "الترف",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "الترف",
+  },
   // Favicon is served from src/app/icon.png via Next's file-based metadata convention.
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0A1F3F",
 };
 
 export default function RootLayout({
@@ -31,6 +42,7 @@ export default function RootLayout({
         <Footer />
         <WhatsAppButton />
         <ChatWidget />
+        <RegisterSW />
       </body>
     </html>
   );
