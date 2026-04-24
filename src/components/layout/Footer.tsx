@@ -6,7 +6,7 @@ const quickLinks = [
   { label: "آلية العمل", href: "#how-it-works" },
   { label: "لماذا الترف", href: "#why-us" },
   { label: "متابعة الطلب", href: "/track-order" },
-  { label: "تواصل معنا", href: "https://wa.me/966543222787", external: true },
+  { label: "تواصل معنا", href: "tel:920018173" },
 ];
 
 const serviceLinks = [
@@ -123,23 +123,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((l) => (
                 <li key={l.href}>
-                  {l.external ? (
-                    <a
-                      href={l.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-white/70 hover:text-gold transition-colors"
-                    >
-                      {l.label}
-                    </a>
-                  ) : (
-                    <Link
-                      href={l.href}
-                      className="text-sm text-white/70 hover:text-gold transition-colors"
-                    >
-                      {l.label}
-                    </Link>
-                  )}
+                  <Link
+                    href={l.href}
+                    className="text-sm text-white/70 hover:text-gold transition-colors"
+                  >
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>

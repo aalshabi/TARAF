@@ -143,9 +143,7 @@ export default function Navbar() {
             متابعة الطلب
           </Link>
           <a
-            href="https://wa.me/966543222787"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="tel:920018173"
             className="text-sm font-semibold text-white bg-blue hover:bg-blue/90 px-5 py-2.5 rounded-lg transition-colors"
           >
             تواصل معنا
@@ -245,9 +243,7 @@ export default function Navbar() {
 
             <div className="mt-4 px-4">
               <a
-                href="https://wa.me/966543222787"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:920018173"
                 onClick={() => setMobileOpen(false)}
                 className="block w-full text-center text-base font-semibold text-white bg-blue hover:bg-blue/90 py-3 rounded-lg transition-colors"
               >
