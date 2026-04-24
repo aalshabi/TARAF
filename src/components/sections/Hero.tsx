@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import LeadForm from '@/components/forms/LeadForm'
 
@@ -42,15 +41,17 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4 mb-10">
-              <Link
-                href="/contact"
+              <a
+                href="https://wa.me/966543222787"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-blue hover:bg-blue/90 text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
               >
                 ابدأ طلبك الآن
                 <svg className="w-5 h-5 rtl:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </Link>
+              </a>
               <a
                 href="tel:920018173"
                 className="inline-flex items-center justify-center gap-2 border-2 border-navy text-navy hover:bg-navy hover:text-white font-semibold px-8 py-3.5 rounded-xl transition-colors text-base"
